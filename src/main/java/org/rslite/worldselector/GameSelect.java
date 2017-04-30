@@ -1,7 +1,9 @@
 package org.rslite.worldselector;
 
 import org.rslite.RSLiteConfig;
+import org.rslite.loader.Browser;
 import org.rslite.loader.Loader;
+import org.rslite.loader.LoaderConfig;
 import org.rslite.loader.LoaderConfigs;
 
 import javax.imageio.ImageIO;
@@ -18,12 +20,12 @@ public class GameSelect extends javax.swing.JFrame {
 	 * Creates new form GameSelect
 	 */
 	public GameSelect() {
-		super("RSLite - Select Game");
-		try {
+		super(""+ RSLiteConfig.NAME+"- Select Game");
+		/*try {
 			setIconImage(ImageIO.read(this.getClass().getResource("/icon.png")));
 		} catch (IOException e) {
 			// Simply unable to load, meh.
-		}
+		}*/
 		initComponents();
 	}
 

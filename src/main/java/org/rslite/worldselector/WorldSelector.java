@@ -5,6 +5,7 @@ import org.rslite.jagex.world.Location;
 import org.rslite.jagex.world.WorldInfo;
 import org.rslite.jagex.world.WorldParser;
 import org.rslite.loader.Loader;
+import org.rslite.loader.LoaderConfig;
 import org.rslite.loader.LoaderConfigs;
 import org.rslite.util.LatencyChecker;
 
@@ -70,13 +71,13 @@ public class WorldSelector extends javax.swing.JFrame {
 	 * Creates new form WorldSelector
 	 */
 	public WorldSelector() {
-		super("RSLite - World Select");
+		super(""+RSLiteConfig.NAME+"- World Select");
 
-		try {
+		/*try {
 			setIconImage(ImageIO.read(this.getClass().getResource("/icon.png")));
 		} catch (IOException e) {
 			// Simply unable to load, meh.
-		}
+		}*/
 
 		initComponents();
 
@@ -351,7 +352,7 @@ public class WorldSelector extends javax.swing.JFrame {
 				pingService.execute(new LatencyCheckRunnable(info));
 			}
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Unable to load the world list due to a connection error.\nPlease re-load RSLite and try again.", "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Unable to load the world list due to a connection error.\nPlease re-load "+ RSLiteConfig.NAME+"and try again.", "Error", JOptionPane.ERROR_MESSAGE);
 			System.exit(1);
 		}
 

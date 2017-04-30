@@ -1,10 +1,11 @@
 package org.rslite.loader;
 
+import org.rslite.RSLiteConfig;
 import org.rslite.jagex.JagexConfiguration;
 import org.rslite.jagex.JagexConfigurationParser;
 
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
+import javax.swing.*;
 import java.applet.Applet;
 import java.io.IOException;
 import java.net.URL;
@@ -69,17 +70,18 @@ public class Loader {
 		final LoadingPanel loadingPanel = new LoadingPanel(this);
 
 		frame = new JFrame((String) loader.getConfiguration().get("title"));
+		frame.setTitle(""+RSLiteConfig.NAME+" - "+loader.getConfiguration().get("title")+"");
 		frame.add(loadingPanel);
-		frame.setResizable(config.isResizable());
+		frame.setResizable(true);
 		frame.pack();
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		try {
+		/*try {
 			frame.setIconImage(ImageIO.read(this.getClass().getResource("/icon.png")));
 		} catch (IOException e) {
-			// Ignore, just unable to load.
-		}
+            JOptionPane.showMessageDialog(frame, "There was an error attempting to load the RuneScape Client.");
+		}*/
 
 		new Thread(new Runnable() {
 			@Override

@@ -17,6 +17,8 @@ import java.util.Properties;
  */
 public class RSLiteConfig {
 
+	public static String NAME = "Test";
+
 	/**
 	 * The static properties object
 	 */
@@ -48,7 +50,7 @@ public class RSLiteConfig {
 		File file = new File(System.getProperty("user.home"), ".rslite");
 
 		try (OutputStream output = new FileOutputStream(file)) {
-			properties.store(output, "RSLite Settings");
+			properties.store(output, ""+NAME+"Settings");
 		} catch (IOException e) {
 			// Eat the exception, not the best idea but too lazy to do better.
 		}
